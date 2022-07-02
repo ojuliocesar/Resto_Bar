@@ -47,14 +47,14 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">id*:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="iden" id="iden" value="<?php echo $dados['id'] ?>" placeholder="seu nome" required >
+                        <input type="text" class="form-control" name="iden" id="iden" value="<?php echo $dados['id'] ?>" placeholder="seu ID" required >
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">Nome*:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $dados['name'] ?>" placeholder="seu nome" required>
+                        <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $dados['nome'] ?>" placeholder="seu nome" required>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>

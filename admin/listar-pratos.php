@@ -9,7 +9,7 @@
         <div class="panel panel-default">
 
           <div class="panel-heading">
-            <h3 class="panel-title">CRUD Operation Using PHP PDO</h3> </div>
+            <h3 class="panel-title">CRUD Operation Using MySQLi</h3> </div>
           <div class="panel-body">
 
           <?php 
