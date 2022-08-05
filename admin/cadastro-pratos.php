@@ -22,7 +22,6 @@
                 margin: 20px auto;
             }
         </style>
-
     </head>
     <body>
 
@@ -102,7 +101,7 @@
         <footer>
             <hr>
             <div class="copyright">Desenvolvido com ❤ por
-                <a href="" target="_blank">Bistrô Bar</a>
+                <a href="" target="_blank">Bistrô</a>
             </div>  
         </footer>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

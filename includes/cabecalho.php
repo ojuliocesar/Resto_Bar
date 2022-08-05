@@ -21,7 +21,7 @@
             <div class="global-page-container">
 
                 <div class="logo small-6 small-offset-3 large-3 large-offset-0 columns no-padding">
-                    <a href="index.html" title="home">
+                    <a href="index.php" title="home">
                         <div class="table">
                             <div class="table-cell">
                                 <h1>Restô Bar</h1>
@@ -34,10 +34,10 @@
                     <div class="table">
                         <div class="table-cell">
                             <ul class="menu-items">
-                                <li><a href="index.html#about-us">Sobre</a></li>
-                                <li><a href="cardapio.html">Cardápio</a></li>
-                                <li><a href="index.html#contact-us">Reserva</a></li>
-                                <li><a href="index.html#footer">Contacto</a></li>
+                                <li><a href="index.php#about-us">Sobre</a></li>
+                                <li><a href="cardapio.php">Cardápio</a></li>
+                                <li><a href="index.php#contact-us">Reserva</a></li>
+                                <li><a href="index.php#footer">Contato</a></li>
                             </ul>
                         </div>
                     </div>

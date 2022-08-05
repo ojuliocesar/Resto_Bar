@@ -1,8 +1,15 @@
-<?php include('includes/cabecalho.php') ?>
+<?php
+    include('includes/cabecalho.php');
+?>
 
-    <div class="ghost-element"></div>
+    <div class="ghost-element">
+    </div>
+
+
 
     <div class="welcome-gallery small-12 columns">
+
+
 
         <div class="photo-section small-12 columns">
             <img class="homepage-main-photo" src="img/main-photo.jpg" alt="slider imagem 1">
@@ -214,5 +221,6 @@
 
         </div>
     </div>
-    <?php include('includes/rodape.php') ?>
-</html>
+    <?php
+     include('includes/rodape.php');
+    ?>

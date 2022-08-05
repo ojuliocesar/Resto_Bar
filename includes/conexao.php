@@ -1,8 +1,10 @@
 <?php
 
-define('HOST', 'localhost');
-define('USER', 'root');
-define('PASSWORD', '');
-define('DB', 'db_restaurante');
+define('HOST','localhost');
+define('USUARIO','root');
+define('SENHA','');
+define('DB','db_restaurante');
 
-$conexao = mysqli_connect(HOST,USER,PASSWORD,DB) or die ('Não foi possível conectar');
+$conexao = mysqli_connect(HOST,USUARIO,SENHA,DB) 
+or die ('Não foi possível conectar');
+
