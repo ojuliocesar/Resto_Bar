@@ -47,7 +47,7 @@
         <main class="container">
         <h1>Edição do prato</h1>
         <br>
-        <form class="form-horizontal" action="" method="post" role="form" data-toggle="validator" enctype = "multipart/form-data">
+        <form class="form-horizontal" action="atualizar_pratos.php?idprato=<?= $id ?>" method="post" role="form" data-toggle="validator" enctype = "multipart/form-data">
             <div class="form-group">
                 <label class="control-label col-sm-3">Nome do Prato*:</label>
                 <div class="col-sm-9">
@@ -84,8 +84,7 @@
             <div class="form-group">
             <label class="control-label col-sm-3">Descrição*:</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control" id="exampleTextarea" rows="6" 
-                              id="descricao" name="descricao" placeholder="sua mensagem" required></textarea>
+                    <textarea class="form-control" id="exampleTextarea" rows="6" id="descricao" name="descricao" placeholder="sua mensagem" required><?= $dados['descricao'] ?></textarea>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -107,9 +106,8 @@
                     <label class="control-label col-sm-3">Destaque*:</label>
                     <div class="col-sm-9">
                         <select class="form-control" name="destaque" >
-                            <option value="" disabled="disabled">Quer o prato em destaque?</option>
-                            <option value="0" >Não</option>
-                            <option value="1" >Sim</option>
+                            <option value="0" <?= $dados['destaque'] == 0 ? 'selected="selected"' : '' ?>>Não</option>
+                            <option value="1" <?= $dados['destaque'] == 1 ? 'selected="selected"' : '' ?>>Sim</option>
                         </select>
                         <div class="help-block with-errors"></div>
                     </div>
