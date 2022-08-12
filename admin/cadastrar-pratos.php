@@ -22,10 +22,6 @@ if (isset($_POST['submit'])) {
         echo 'Erro ao inserir imagem';
     }
 
-    var_dump($_FILES);
-
-    exit();
-
     $sql = "INSERT INTO
             tb_pratos (codigo, nome, categoria, descricao, preco, calorias, destaque)
             VALUES ('$codigo', '$nome', '$categoria', '$descricao', '$preco', '$calorias', '$destaque')";

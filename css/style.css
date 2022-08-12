@@ -101,6 +101,14 @@ Placeholder
 /* Vari├íveis *******************************************************************************/
 /* Fim das Vari├íveis */
 /* Global Header Styles ********************************************************************/
+html {
+  scroll-behavior: smooth;
+}
+
+:target {
+  scroll-margin-top: 40px;
+}
+
 header {
   background-color: #B92C0A;
   -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.12);
