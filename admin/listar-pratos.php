@@ -8,7 +8,7 @@ include('../includes/conexao.php');
 <div class="container">
   <div class="row centered-form">
     <div class="col-lg-12 ">
-      <p><a href="index.php">Add New Record</a></p>
+      <p><a href="../index.php">Add New Record</a></p>
     <div class="panel panel-default">
 
       <div class="panel-heading">
@@ -51,7 +51,7 @@ include('../includes/conexao.php');
             <td><?php echo $dados ['calorias'] ?></td>
             <td><?php echo $dados ['destaque'] ?></td>
             <td><button><a href="editar_pratos.php?idprato=<?= $id ?>">Alterar</button></a></td>
-            <td><button><a href="">Excluir</button></a></td>
+            <td><button><a href="deletar-pratos.php?idprato=<?= $id ?>">Excluir</button></a></td>
           </tr> 
           <?php endwhile ?> 
         </tbody>
