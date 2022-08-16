@@ -1,8 +1,16 @@
 <?php
+
     session_start();
 
-    include('includes/cabecalho.php');
-    include('includes/conexao.php');
+    require_once('includes/cabecalho.php');
+    require_once('includes/conexao.php');
+
+    $sql = "SELECT * FROM tb_pratos WHERE destaque = 1";
+
+    $resultado = $conexao->query($sql);
+
+    $data = $resultado->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
     <div class="ghost-element"></div>
@@ -14,11 +22,21 @@
         </div>
 
         <div class="main-section-title small-10 columns">
+
+            <?php if (isset($_SESSION['flash'])): ?>
+
+            <div data-alert class="alert-box <?= $_SESSION['flash']['color'] ?> radius">
+                <span><?= $_SESSION['flash']['message'] ?></span>
+                <a href="#" class="close">&times;</a>
+            </div>
+
+            <?php unset($_SESSION['flash']); endif ?>
+
+
             <div class="table">
                 <div class="table-cell">
                     <h1>Bem vindo ao Restô Bar</h1>
                     <h2>A cozinha tradicional na Brasa</h2>
-
                 </div>
             </div>
 
@@ -76,38 +94,24 @@
         <div class="global-page-container">
             <div class="slider-cardapio">
                 <div class="slider-002 small-12 small-centered columns">
-                    <?php 
-                    
-                    $sql = "SELECT * FROM tb_pratos WHERE destaque = 1";
-
-                    $resultado = $conexao->query($sql);
-
-                    $data = $resultado->fetch_all(MYSQLI_ASSOC);
-
-                    foreach ($data as $dados):
-
-                    ?>
+                    <?php foreach ($data as $dados): ?>
 
                     <div class="cardapio-item-outer bounce-hover small-10 medium-4 columns">
                         <div class="cardapio-item">
                             <a href="prato.php?prato=<?= $dados['codigo'] ?>">
-
                                 <div class="cardapio-item-image">
                                     <img src="img/cardapio/<?= $dados['codigo'] ?>.jpg" alt="<?php $dados ['nome']?>" />
                                 </div>
 
                                 <div class="item-info">
-
-
                                     <div class="title"><?= $dados['nome']?></div>
                                 </div>
 
-                                <div class="gradient-filter">
-                                </div>
-
+                                <div class="gradient-filter"></div>
                             </a>
                         </div>
                     </div>
+
                     <?php endforeach ?>
                 </div>
             </div>
@@ -126,31 +130,28 @@
 
             <div class="reservation-form small-12 columns no-padding">
 
-                <form action="admin/reserva.php" method="POST" enctype="">
+                <form action="admin/reserva.php" method="POST">
 
                     <div class="form-part1 small-12 large-8 xlarge-7 columns no-padding">
 
-                        <input type="text" name="nome" class="field" placeholder="Nome completo" />
+                        <input type="text" name="nome" class="field" placeholder="Nome completo" required/>
 
-                        <input type="text" name="email" class="field" placeholder="E-mail" />
+                        <input type="email" name="email" class="field" placeholder="E-mail" required/>
 
-                        <textarea type="text" name="mensagem" class="field" placeholder="Mensagem"></textarea>
-
+                        <textarea type="text" name="mensagem" class="field" placeholder="Mensagem" required></textarea>
 
                     </div>
 
                     <div class="form-part2 small-12 large-3 xlarge-3 end columns no-padding">
-                        <input type="text" name="telefone" class="field" placeholder="Telefone" />
+                        <input type="tel" pattern="[0-9]{2}\ [0-9]{5}[0-9]{4}" name="telefone" class="field" placeholder="Telefone: 19 998899988" required/>
 
-                        <input type="datetime-local" name="data" class="field" placeholder="Data e hora" />
+                        <input type="datetime-local" name="data" class="field" placeholder="Data e hora" required/>
 
-                        <input type="text" name="number" class="field" placeholder="Número de pessoas" />
+                        <input type="number" min="1" name="number" class="field" placeholder="Número de pessoas" required/>
 
-                        <input type="submit" name="submit" value="Reservar" />
+                        <input type="submit" name="submit" value="Reservar" required/>
 
                     </div>
-
-
                 </form>
             </div>
 

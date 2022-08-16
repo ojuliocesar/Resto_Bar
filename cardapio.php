@@ -1,9 +1,15 @@
 <?php
+
 include_once('includes/cabecalho.php');
 include_once('includes/conexao.php');
+
+$sql = "SELECT DISTINCT categoria FROM tb_pratos";
+
+$result = $conexao->query($sql);
+
 ?>
-<div class="ghost-element">
-</div>
+
+<div class="ghost-element"></div>
 
 <div class="cardapio-list small-11 large-12 columns no-padding small-centered">
 
@@ -13,13 +19,8 @@ include_once('includes/conexao.php');
             <hr></hr>
         </div>
 
-        <?php
-
-        $sql = "SELECT DISTINCT categoria FROM tb_pratos";
-
-        $result = $conexao->query($sql);
+        <?php if ($result->num_rows > 0):
         
-        if ($result->num_rows > 0):
             while ($row = $result->fetch_assoc()):
                 $categoria = $row['categoria']; ?>
 

@@ -1,5 +1,9 @@
 <?php
     include('../includes/conexao.php');
+
+    if (!isset($_GET['idprato'])) {
+        header("Location: ../index.php");
+    }
 ?>
 
 <html>
@@ -67,7 +71,7 @@
                 <div class="col-sm-9">
                     <select class="form-control" name="categoria" id="categoria">
                         <option value="entrada" <?php echo $dados['categoria'] == 'entrada' ? 'selected="selected"' : '' ?>>Entrada</option>
-                        <option value="prato_principal" <?php echo $dados['categoria'] == 'prato-principal' ? 'selected="selected"' : '' ?> >Prato principal</option>
+                        <option value="prato-principal" <?php echo $dados['categoria'] == 'prato-principal' ? 'selected="selected"' : '' ?> >Prato principal</option>
                         <option value="sobremesa" <?php echo $dados['categoria'] == 'sobremesa' ? 'selected="selected"' : '' ?> >Sobremesa</option>
                     </select>
                     <div class="help-block with-errors"></div>

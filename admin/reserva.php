@@ -1,26 +1,47 @@
 <?php
 
+session_start();
+
 require_once('../includes/conexao.php');
 
 if (isset($_POST['submit'])) {
 
-    DEFINE('NOME', $_POST['nome']);
-    DEFINE('TELEFONE', $_POST['telefone']);
-    DEFINE('EMAIL', $_POST['email']);
-    DEFINE('DATA', $_POST['data']);
-    DEFINE('MENSAGEM', $_POST['mensagem']);
-    DEFINE('NUMBER', $_POST['number']);
+    $hasEmpty = false;
 
-    $sql = "INSERT INTO tb_reserva (nome, telefone, email, data_reserva, mensagem, numero_pessoas) VALUES ('" . NOME . "', '" . TELEFONE . "', '" . EMAIL . "', '" . DATA . "', '" . MENSAGEM . "', '" . NUMBER . "')";
+    foreach($_POST as $postItem) {
+        if (empty(trim($postItem))) {
+            $hasEmpty = true;
+        }
+    }
 
-    $comands = $conexao->query($sql);
+    if (!$hasEmpty) {
+        DEFINE('NOME', filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS));
+        DEFINE('TELEFONE', filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_NUMBER_INT));
+        DEFINE('EMAIL', filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+        DEFINE('DATA', $_POST['data']);
+        DEFINE('MENSAGEM', filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_SPECIAL_CHARS));
+        DEFINE('NUMERO', filter_input(INPUT_POST, 'number', FILTER_SANITIZE_NUMBER_INT));
 
-    if (mysqli_affected_rows($conexao)) {
+        $sql = "INSERT INTO tb_reserva (nome, telefone, email, data_reserva, mensagem, numero_pessoas) VALUES ('" . NOME . "', '" . TELEFONE . "', '" . EMAIL . "', '" . DATA . "', '" . MENSAGEM . "', '" . NUMERO . "')";
+
+        $comands = $conexao->query($sql);
+
+        if (mysqli_affected_rows($conexao)) {
+            $_SESSION['flash']['message'] = 'Reserva cadastrada com sucesso!';
+            $_SESSION['flash']['color'] = 'success';
+
+        } else {
+            $_SESSION['flash']['message'] = 'O servidor está em manutenção!';
+            $_SESSION['flash']['color'] = 'alert';
+        }
+
         $conexao->close();
 
-        header("Location: ../index.php");
     } else {
-        echo 'Algo deu errado!';
+        $_SESSION['flash']['message'] = "Preencha as informações!";
+        $_SESSION['flash']['color'] = 'alert';
     }
 }
+
+header("Location: ../index.php");
 

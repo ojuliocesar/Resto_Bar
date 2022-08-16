@@ -2,13 +2,16 @@
 
 require('../includes/conexao.php');
 
-$id = $_GET['idprato'];
+if (isset($_GET['idprato'])) {
 
-$sql = "DELETE FROM tb_pratos WHERE id = $id";
+    $id = $_GET['idprato'];
 
-$conexao->query($sql);
+    $sql = "DELETE FROM tb_pratos WHERE id = $id";
 
-$conexao->close();
+    $conexao->query($sql);
+
+    $conexao->close();
+}
 
 header("Location: listar-pratos.php");
 exit();

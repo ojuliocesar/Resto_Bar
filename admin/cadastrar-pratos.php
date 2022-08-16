@@ -29,6 +29,6 @@ if (isset($_POST['submit'])) {
     $conexao->query($sql);
 
     $conexao->close();
-
-    header("Location: listar-pratos.php");
 }
+
+header("Location: listar-pratos.php");
