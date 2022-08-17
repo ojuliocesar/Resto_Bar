@@ -25,9 +25,8 @@
 
             <?php if (isset($_SESSION['flash'])): ?>
 
-            <div data-alert class="alert-box <?= $_SESSION['flash']['color'] ?> radius">
+            <div data-alert class="alert-box animation-flash <?= $_SESSION['flash']['color'] ?> radius">
                 <span><?= $_SESSION['flash']['message'] ?></span>
-                <a href="#" class="close">&times;</a>
             </div>
 
             <?php unset($_SESSION['flash']); endif ?>
@@ -143,7 +142,7 @@
                     </div>
 
                     <div class="form-part2 small-12 large-3 xlarge-3 end columns no-padding">
-                        <input type="tel" pattern="[0-9]{2}\ [0-9]{5}[0-9]{4}" name="telefone" class="field" placeholder="Telefone: 19 998899988" required/>
+                        <input type="tel" pattern="[0-9]{11}" name="telefone" class="field" placeholder="Telefone: 19998899988" required/>
 
                         <input type="datetime-local" name="data" class="field" placeholder="Data e hora" required/>
 
@@ -157,6 +156,8 @@
 
         </div>
     </div>
-    <?php
-     include('includes/rodape.php');
-    ?>
+<?php
+
+include('includes/rodape.php');
+
+?>

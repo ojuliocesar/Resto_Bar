@@ -920,3 +920,87 @@ footer {
 /* min-width 1441px ********************************************************************/
 
 /*# sourceMappingURL=style.css.map */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#container-admin {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.main-form {
+  width: 30%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+  border: 1px solid #ccc;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+  padding: 30px;
+}
+
+.input-wrapper, .input-wrapper input {
+  width: 100%;
+}
+
+.input-wrapper input {
+  padding: 13px 10px;
+}
+
+input:focus {
+  outline:none!important;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.main-button {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #04AA6D;
+  color: #fff;
+}
+
+.main-button:hover {
+  background-color: #039e65;
+  cursor: pointer;
+}
+
+.alert {
+  position: absolute;
+  width: 100%;
+}
+
+.animation-flash {
+  animation: message 0.5s forwards;
+  animation-delay: 3s;
+}
+
+@keyframes message {
+  0% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+  }
+}

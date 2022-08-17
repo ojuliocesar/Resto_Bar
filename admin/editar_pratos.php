@@ -2,7 +2,7 @@
     include('../includes/conexao.php');
 
     if (!isset($_GET['idprato'])) {
-        header("Location: ../index.php");
+        header("Location: listar-pratos.php");
     }
 ?>
 

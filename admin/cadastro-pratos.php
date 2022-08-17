@@ -1,12 +1,15 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Código fonte formulario php"/>
-        <meta name="keywords" content="formulario php, bootstrap, bootstrap validator"/>
-        <title>Adicionar Pratos</title>
+<?php
 
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+session_start();
+
+if (!isset($_SESSION['token'])) {
+    header("Location: index.php");
+}
+
+?>
+
+<html>
+    <?php require_once('../includes/header_admin.php') ?>
         <style>
             main, footer, .mensagem-alerta{
                 text-align: center; 
@@ -22,10 +25,17 @@
                 margin: 20px auto;
             }
         </style>
-    </head>
-    <body>
 
-        <main class="container">
+        <?php if (isset($_SESSION['flash'])): ?>
+
+            <div class="flash-danger">
+                <span><?= $_SESSION['flash']['message'] ?></span>
+            </div>
+
+        <?php unset($_SESSION['flash']); endif ?>
+
+        <main class="container container-create">
+
             <h1>Formulário de Contato</h1>
             <p>Acrescente um email válido para receber o email teste!</p>
             <br>
@@ -33,14 +43,14 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">Nome do Prato:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nome" id="nome" placeholder="" >
+                        <input type="text" class="form-control" name="nome" id="nome" required>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">Codigo:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="codigo" id="codigo" placeholder="" >
+                        <input type="text" class="form-control" name="codigo" id="codigo" required>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -54,7 +64,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">Categoria:</label>
                     <div class="col-sm-9">
-                        <select class="form-control" name="categoria" required id="categoria">
+                        <select class="form-control" name="categoria" required id="categoria" required>
                             <option value="" selected="selected" disabled="disabled"> -- Escolha uma opção --</option>
                             <option value="entrada">Entrada</option>
                             <option value="prato-principal">Prato Principal</option>
@@ -81,7 +91,7 @@
                 <div class="form-group">
                 <label class="control-label col-sm-3" for="imagem">Imagem Do Prato:</label>
                 <div class="col-sm-9">
-                    <input type="file" class="form-control" name="imagem" id="imagem">
+                    <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg, image/webp" class="form-control" name="imagem" id="imagem">
                     <div class="help-block with-errors"></div>
                 </div>
             </div>

@@ -1,14 +1,27 @@
 <?php 
 
+session_start();
+
 include('../includes/conexao.php');
+require_once('../includes/header_admin.php');
+
+if (!isset($_SESSION['token'])) {
+  header("Location: index.php");
+}
 
 ?>
 
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <div class="container">
   <div class="row centered-form">
+    <?php if (isset($_SESSION['flash'])): ?>
+
+      <div class="flash-danger <?= isset($_SESSION['flash']['color']) ? $_SESSION['flash']['color'] : '' ?>">
+        <span><?= $_SESSION['flash']['message'] ?></span>
+      </div>
+
+    <?php unset($_SESSION['flash']); endif ?>
+    
     <div class="col-lg-12 ">
-      <p><a href="../index.php">Add New Record</a></p>
     <div class="panel panel-default">
 
       <div class="panel-heading">
@@ -36,20 +49,19 @@ include('../includes/conexao.php');
             <th>Preço</th>
             <th>Calorias</th>
             <th>Destaque</th>
-            
           </tr>
         </thead>
         <tbody>
           <?php while($dados=mysqli_fetch_array($res)): $id = $dados['id'] ?>
           <tr>
-            <td><?php echo $dados ['id'] ?></td>
-            <td><?php echo $dados ['codigo'] ?></td>
-            <td><?php echo $dados ['nome'] ?></td>
-            <td><?php echo $dados ['categoria'] ?></td>
-            <td><?php echo $dados ['descricao'] ?></td>
-            <td><?php echo $dados ['preco'] ?></td>
-            <td><?php echo $dados ['calorias'] ?></td>
-            <td><?php echo $dados ['destaque'] ?></td>
+            <td><?php echo $dados['id'] ?></td>
+            <td><?php echo $dados['codigo'] ?></td>
+            <td><?php echo $dados['nome'] ?></td>
+            <td><?php echo $dados['categoria'] ?></td>
+            <td><?php echo $dados['descricao'] ?></td>
+            <td><?php echo $dados['preco'] ?></td>
+            <td><?php echo $dados['calorias'] ?></td>
+            <td><?php echo $dados['destaque'] ?></td>
             <td><button><a href="editar_pratos.php?idprato=<?= $id ?>">Alterar</button></a></td>
             <td><button><a href="deletar-pratos.php?idprato=<?= $id ?>">Excluir</button></a></td>
           </tr> 
