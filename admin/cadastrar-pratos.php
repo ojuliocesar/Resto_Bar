@@ -26,6 +26,15 @@ if (isset($_POST['submit']) && isset($_FILES['imagem'])) {
         $calorias = filter_input(INPUT_POST, 'calorias', FILTER_SANITIZE_NUMBER_INT);
         $destaque = filter_input(INPUT_POST, 'destaque', FILTER_SANITIZE_NUMBER_INT);
 
+        $conexao->query("SELECT * FROM tb_pratos WHERE codigo = '$codigo'");
+
+        if (mysqli_affected_rows($conexao)) {
+            $_SESSION['flash']['message'] = 'Cógido já existente! Altere o valor do Código';
+            header("Location: cadastro-pratos.php");
+
+            exit();
+        }
+
         $dir = "../img/cardapio/";
 
         $imagem['name'] = $codigo.".jpg";
@@ -43,7 +52,7 @@ if (isset($_POST['submit']) && isset($_FILES['imagem'])) {
 
         if (mysqli_affected_rows($conexao)) {
             $_SESSION['flash']['message'] = 'Prato cadastrado com sucesso!';
-            // $_SESSION['flash']['color'] = 'success';
+            $_SESSION['flash']['color'] = 'success';
         } else {
             $_SESSION['flash']['message'] = 'Servidor em manutenção. Por favor, aguarde!';
         }

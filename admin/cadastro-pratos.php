@@ -36,8 +36,8 @@ if (!isset($_SESSION['token'])) {
 
         <main class="container container-create">
 
-            <h1>Formulário de Contato</h1>
-            <p>Acrescente um email válido para receber o email teste!</p>
+            <h1>Criação de Pratos</h1>
+            <p>Acrescente as informações desejadas</p>
             <br>
             <form class="form-horizontal" action="cadastrar-pratos.php" method="post" role="form" data-toggle="" enctype="multipart/form-data">
                 <div class="form-group">
@@ -91,7 +91,7 @@ if (!isset($_SESSION['token'])) {
                 <div class="form-group">
                 <label class="control-label col-sm-3" for="imagem">Imagem Do Prato:</label>
                 <div class="col-sm-9">
-                    <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg, image/webp" class="form-control" name="imagem" id="imagem">
+                    <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg, image/webp" class="form-control" name="imagem" id="imagem" required>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>

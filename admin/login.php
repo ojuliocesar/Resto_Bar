@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $sql = "SELECT email, senha FROM tb_admin WHERE email = '$email' AND senha = '$senha'";
+    $sql = "SELECT email, senha FROM tb_admin WHERE email = '$email' AND BINARY senha = '$senha' AND ativo = 1";
 
     $conexao->query($sql);
 
