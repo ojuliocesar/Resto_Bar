@@ -1,20 +1,19 @@
 <?php
-    include('../includes/conexao.php');
+    session_start();
+
+    include('../../includes/conexao.php');
+
+    if (!isset($_SESSION['token'])) {
+        header("Location: ../index.php");
+    }
 
     if (!isset($_GET['idprato'])) {
-        header("Location: listar-pratos.php");
+        header("Location: listar.php");
     }
 ?>
 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Código fonte formulario php"/>
-        <meta name="keywords" content="formulario php, bootstrap, bootstrap validator"/>
-        <meta name="author" content="Cristiane Faria"/>
-
-        <title>Hora de Trabalhar | Formulário PHP</title>
+    <?php require_once('../../includes/admin/header.php') ?>
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
         <style>
@@ -33,9 +32,6 @@
             }
         </style>
 
-    </head>
-    <body>
-
         <?php
 
         $id = $_GET['idprato'];
@@ -48,7 +44,7 @@
 
         ?>
 
-        <main class="container">
+        <main class="container container-painel">
         <h1>Edição do prato</h1>
         <br>
         <form class="form-horizontal" action="atualizar_pratos.php?idprato=<?= $id ?>" method="post" role="form" data-toggle="validator" enctype = "multipart/form-data">

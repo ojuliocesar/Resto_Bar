@@ -129,7 +129,7 @@
 
             <div class="reservation-form small-12 columns no-padding">
 
-                <form action="admin/reserva.php" method="POST">
+                <form action="admin/reservas/reserva.php" method="POST">
 
                     <div class="form-part1 small-12 large-8 xlarge-7 columns no-padding">
 

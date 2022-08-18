@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once('../includes/conexao.php');
+require_once('../../includes/conexao.php');
 
 if (isset($_POST['submit'])) {
 
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     }
 
     if (!$hasEmpty) {
-        DEFINE('NOME', INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+        DEFINE('NOME', filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS));
         DEFINE('TELEFONE', filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_NUMBER_INT));
         DEFINE('EMAIL', filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
         DEFINE('DATA', $_POST['data']);
@@ -54,4 +54,4 @@ if (isset($_POST['submit'])) {
     }
 }
 
-header("Location: ../index.php");
+header("Location: ../../index.php");

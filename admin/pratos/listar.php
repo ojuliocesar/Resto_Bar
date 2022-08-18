@@ -2,11 +2,11 @@
 
 session_start();
 
-include('../includes/conexao.php');
-require_once('../includes/header_admin.php');
+include('../../includes/conexao.php');
+require_once('../../includes/admin/header.php');
 
 if (!isset($_SESSION['token'])) {
-  header("Location: index.php");
+  header("Location: ../index.php");
 }
 
 ?>
@@ -25,7 +25,7 @@ if (!isset($_SESSION['token'])) {
     <div class="panel panel-default">
 
       <div class="panel-heading">
-        <h3 class="panel-title">CRUD Operation Using PHP PDO</h3> </div>
+        <h3 class="panel-title">CRUD Operation Using MySQLI</h3> </div>
       <div class="panel-body">
 
       <?php

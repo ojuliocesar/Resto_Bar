@@ -1,6 +1,8 @@
 <?php
 
-require_once('../includes/conexao.php');
+session_start();
+
+require_once('../../includes/conexao.php');
 
 if (isset($_POST['btnSend'])) {
 
@@ -17,7 +19,14 @@ if (isset($_POST['btnSend'])) {
 
     $conexao->query($sql);
 
+    if (mysqli_affected_rows($conexao)) {
+        $_SESSION['flash']['message'] = 'Prato alterado com sucesso!';
+        $_SESSION['flash']['color'] = 'success';
+    } else {
+        $_SESSION['flash']['message'] = 'Servidor em manutenção. Por favor, aguarde!';
+    }
+
     $conexao->close();
 }
 
-header("Location: listar-pratos.php");
+header("Location: listar.php");

@@ -3,13 +3,13 @@
 session_start();
 
 if (!isset($_SESSION['token'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 
 ?>
 
 <html>
-    <?php require_once('../includes/header_admin.php') ?>
+    <?php require_once('../../includes/admin/header.php') ?>
         <style>
             main, footer, .mensagem-alerta{
                 text-align: center; 
@@ -34,7 +34,7 @@ if (!isset($_SESSION['token'])) {
 
         <?php unset($_SESSION['flash']); endif ?>
 
-        <main class="container container-create">
+        <main class="container container-painel">
 
             <h1>Criação de Pratos</h1>
             <p>Acrescente as informações desejadas</p>

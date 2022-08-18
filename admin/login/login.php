@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once('../includes/conexao.php');
+require_once(__DIR__ . '/../../includes/conexao.php');
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];

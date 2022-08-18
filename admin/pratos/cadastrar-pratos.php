@@ -2,7 +2,7 @@
 
 session_start();
 
-include('../includes/conexao.php');
+include('../../includes/conexao.php');
 
 if (isset($_POST['submit']) && isset($_FILES['imagem'])) {
 
@@ -30,12 +30,12 @@ if (isset($_POST['submit']) && isset($_FILES['imagem'])) {
 
         if (mysqli_affected_rows($conexao)) {
             $_SESSION['flash']['message'] = 'Cógido já existente! Altere o valor do Código';
-            header("Location: cadastro-pratos.php");
+            header("Location: cadastro.php");
 
             exit();
         }
 
-        $dir = "../img/cardapio/";
+        $dir = "../../img/cardapio/";
 
         $imagem['name'] = $codigo.".jpg";
 
@@ -62,8 +62,8 @@ if (isset($_POST['submit']) && isset($_FILES['imagem'])) {
     } else {
         $_SESSION['flash']['message'] = 'Preencha os Campos!';
 
-        header("Location: cadastro-pratos.php");
+        header("Location: cadastro.php");
     }
 }
 
-header("Location: listar-pratos.php");
+header("Location: listar.php");
