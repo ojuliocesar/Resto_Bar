@@ -8,13 +8,14 @@ if (isset($_POST['submit'])) {
 
     if (
         !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ||
-        !strlen(filter_var($_POST['telefone'], FILTER_VALIDATE_INT)) === 11 ||
+        !strlen(!filter_var($_POST['telefone'], FILTER_VALIDATE_INT)) === 11 ||
         !filter_var($_POST['number'], FILTER_VALIDATE_INT)
     ) {
         $_SESSION['flash']['message'] = "Preencha as informações corretamente!";
         $_SESSION['flash']['color'] = 'alert';
         
-        header("Location: ../index.php");
+        header("Location: ../../index.php");
+        exit();
     }
 
     $hasEmpty = false;
@@ -22,7 +23,7 @@ if (isset($_POST['submit'])) {
     foreach($_POST as $postItem) {
         if (empty(trim($postItem))) {
             $hasEmpty = true;
-        }
+        }            
     }
 
     if (!$hasEmpty) {

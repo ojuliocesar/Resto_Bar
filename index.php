@@ -133,20 +133,20 @@
 
                     <div class="form-part1 small-12 large-8 xlarge-7 columns no-padding">
 
-                        <input type="text" name="nome" class="field" placeholder="Nome completo"/>
+                        <input type="text" name="nome" class="field" placeholder="Nome completo" required/>
 
-                        <input type="email" name="email" class="field" placeholder="E-mail"/>
+                        <input type="email" name="email" class="field" placeholder="E-mail" required/>
 
-                        <textarea type="text" name="mensagem" class="field" placeholder="Mensagem"></textarea>
+                        <textarea type="text" name="mensagem" class="field" placeholder="Mensagem" required></textarea>
 
                     </div>
 
                     <div class="form-part2 small-12 large-3 xlarge-3 end columns no-padding">
-                        <input type="number" minlength="11" maxlength="11" name="telefone" class="field" placeholder="Telefone: 19998899988"/>
+                        <input type="number" minlength="11" maxlength="11" name="telefone" class="field" placeholder="Telefone: 19998899988" required/>
 
-                        <input type="datetime-local" name="data" class="field" placeholder="Data e hora"/>
+                        <input type="datetime-local" name="data" class="field" placeholder="Data e hora" required/>
 
-                        <input type="number" min="1" name="number" class="field" placeholder="Número de pessoas"/>
+                        <input type="number" min="1" name="number" class="field" placeholder="Número de pessoas" required/>
 
                         <input type="submit" name="submit" value="Reservar"/>
 

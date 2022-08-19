@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION['token'])) {
+    header("Location: ../index.php");
+}
+
 require('../../includes/conexao.php');
 
 if (isset($_GET['idreserva'])) {
@@ -13,7 +17,7 @@ if (isset($_GET['idreserva'])) {
     $conexao->query($sql);
 
     if (mysqli_affected_rows($conexao)) {
-        $_SESSION['flash']['message'] = 'Prato deletado com sucesso!';
+        $_SESSION['flash']['message'] = 'Reserva deletada com sucesso!';
         $_SESSION['flash']['color'] = 'success';
     } else {
         $_SESSION['flash']['message'] = 'Servidor em manutenção. Por favor, aguarde!';

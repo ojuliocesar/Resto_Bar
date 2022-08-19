@@ -43,14 +43,14 @@ if (!isset($_SESSION['token'])) {
                 <div class="form-group">
                     <label class="control-label col-sm-3">Nome</label>
                     <div class="col-sm-9">
-                        <input type="text" name="nome" class="form-control" placeholder="Nome completo"/>
+                        <input type="text" name="nome" class="form-control" placeholder="Nome completo" required/>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" name="email" id="email" required placeholder="Email">
+                        <input type="email" class="form-control" name="email" id="email" required placeholder="Email" required>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['token'])) {
                 <div class="form-group">
                     <label class="control-label col-sm-3">Data</label>
                     <div class="col-sm-9">
-                        <input type="datetime-local" name="data" class="form-control" placeholder="Data e hora"/>
+                        <input type="datetime-local" name="data" class="form-control" placeholder="Data e hora" required/>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>

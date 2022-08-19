@@ -45,6 +45,15 @@
         ?>
 
         <main class="container container-painel">
+
+        <?php if (isset($_SESSION['flash'])): ?>
+
+        <div class="flash-danger">
+            <span><?= $_SESSION['flash']['message'] ?></span>
+        </div>
+
+        <?php unset($_SESSION['flash']); endif ?>
+        
         <h1>Edição do prato</h1>
         <br>
         <form class="form-horizontal" action="atualizar_pratos.php?idprato=<?= $id ?>" method="post" role="form" data-toggle="validator" enctype = "multipart/form-data">

@@ -4,6 +4,10 @@ session_start();
 
 include('../../includes/conexao.php');
 
+if (!isset($_SESSION['token'])) {
+    header("Location: ../index.php");
+}
+
 if (isset($_POST['submit']) && isset($_FILES['imagem'])) {
 
     $hasEmpty = false;
