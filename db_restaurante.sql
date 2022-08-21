@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `tb_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `tb_admin` (`id`, `email`, `senha`, `ativo`, `data_cadastro`) VALUES
-	(1, 'juliocesarjc025@gmail.com', 'juliocesarjc', b'1', '2022-08-17 14:14:59');
+	(1, 'ojuliocesar@gmail.com', 'ojuliocesar321', b'1', '2022-08-17 14:14:59');
 
 CREATE TABLE IF NOT EXISTS `tb_pratos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
