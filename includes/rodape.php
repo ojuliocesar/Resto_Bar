@@ -32,7 +32,7 @@
 
                 $minutos = (60 * $hora) + $minuto;
 
-                $dia_semana = date("w");
+                $dia_semana = date("N");
 
                 if ($dia_semana >= 1 && $dia_semana <= 5){
                     if ($minutos > 690 && $minutos < 1440) {
