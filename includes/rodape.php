@@ -56,7 +56,7 @@
                     }
                 } elseif ($dia_semana == 7) {
 
-                    if ($minutos > 690 && $minutos < 1080){
+                    if (($minutos > 690 && $minutos < 1080) || $minutos < 120){
                         $texto_horario = '(Aberto Agora)';
                         $classe_horario = 'horario-aberto';
 
