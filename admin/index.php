@@ -24,7 +24,7 @@ if (!isset($_SESSION['token'])) {
 
         <a href="pratos/listar.php">Pratos</a>
         <a href="reservas/listar.php">Reservas</a>
-        <a href="../">Restô Bar</a>
+        <a href="frontend/listar.php">Frontend</a>
     </div>
 </body>
 </html>

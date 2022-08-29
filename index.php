@@ -53,28 +53,22 @@
                 <hr></hr>
             </div>
 
+            <?php
+            
+            $sql2 = "SELECT * FROM tb_frontend WHERE id = 1";
 
-            <img src="img/fachada.jpg" alt="fachada do restaurante">
+            $comands = $conexao->query($sql2);
 
+            $frontend = $comands->fetch_assoc();
+            
+            ?>    
+
+            <img src="img/frontend/<?= $frontend['imagem_sobre'] ?>" alt="fachada do restaurante">
 
             <div class="about-us-text">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus leo mi,
-                    condimentum ac convallis non, porta ac nibh. Morbi volutpat nibh lectus, quis
-                    convallis nunc rutrum vitae. Aenean volutpat aliquam elementum. Nunc consequat
-                    elit odio, vitae suscipit nunc pretium eu. Aenean vitae lacus auctor, condimentum
-                    ipsum at, suscipit erat. Donec dapibus ullamcorper bibendum. Vestibulum posuere
-                    augue in lectus dictum tincidunt. Pellentesque ornare eget enim sed dignissim.
-                    Sed nec nisi suscipit, feugiat risus ac, lacinia elit.
+                    <?= $frontend['sobre'] ?>
                 </p>
-
-                <p>
-                    Duis fermentum leo enim, eget dignissim dolor imperdiet at. Sed ut rutrum lacus.
-                    Aenean eleifend, urna eu dapibus imperdiet, turpis diam tristique mauris, nec
-                    luctus ante massa eu arcu. Duis tempor risus quis tellus posuere eleifend.
-                    Donec fringilla nulla ac odio sagittis tincidunt. Phasellus tempus id felis et
-                    finibus. Aenean felis ligula, varius nec varius at, feugiat nec felis. Morbi
-                    blandit sapien vel justo consequat laoreet.</p>
             </div>
 
         </div>
