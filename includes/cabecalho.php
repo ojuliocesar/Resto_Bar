@@ -38,6 +38,7 @@
                                 <li><a href="cardapio.php">Cardápio</a></li>
                                 <li><a href="index.php#contact-us">Reserva</a></li>
                                 <li><a href="index.php#footer">Contato</a></li>
+                                <?php if (isset($_SESSION['token'])): ?> <li><a href="pages/">Conta</a></li> <?php endif ?>
                             </ul>
                         </div>
                     </div>

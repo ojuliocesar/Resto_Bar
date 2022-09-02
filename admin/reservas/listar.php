@@ -5,7 +5,7 @@ session_start();
 include('../../includes/conexao.php');
 require_once('../../includes/admin/header.php');
 
-if (!isset($_SESSION['token'])) {
+if ($_SESSION['token'] != 'loggedAdmin') {
   header("Location: ../index.php");
 }
 

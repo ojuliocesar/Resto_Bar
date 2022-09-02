@@ -1,15 +1,16 @@
 <?php
-    session_start();
 
-    include('../../includes/conexao.php');
+session_start();
 
-    if (!isset($_SESSION['token'])) {
-        header("Location: ../index.php");
-    }
+include('../../includes/conexao.php');
 
-    if (!isset($_GET['idfrontend'])) {
-        header("Location: listar.php");
-    }
+if ($_SESSION['token'] != 'loggedAdmin') {
+    header("Location: ../index.php");
+}
+
+if (!isset($_GET['idfrontend'])) {
+    header("Location: listar.php");
+}
 
 ?>
 

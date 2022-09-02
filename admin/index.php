@@ -4,6 +4,8 @@ session_start();
 
 if (!isset($_SESSION['token'])) {
     header("Location: ./login/");
+} elseif ($_SESSION['token'] != 'loggedAdmin') {
+    header("Location: ../");
 }
 
 ?>

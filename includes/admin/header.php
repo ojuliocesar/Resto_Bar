@@ -15,7 +15,9 @@
     <a href="../../"><h1 class="main-title">Restô Bar</h1></a>
 
     <ul class="header-item">
-        <a class="item-wrapper" href="cadastro.php"><li>Create</li></a>
+        <?php if (file_exists('cadastro.php')): ?>
+            <a class="item-wrapper" href="cadastro.php"><li>Create</li></a>
+        <?php endif ?>
         <a class="item-wrapper" href="listar.php"><li>List</li></a>
         <a class="item-wrapper" href="../"><li>Painel</li></a>
     </ul>
